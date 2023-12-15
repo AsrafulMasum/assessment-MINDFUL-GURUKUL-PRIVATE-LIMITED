@@ -1,9 +1,10 @@
+import Footer from "./Footer";
 
 
 const Home = () => {
   return (
     <div>
-      Home
+      <Footer></Footer>
     </div>
   );
 };
