@@ -6,7 +6,7 @@ import { ImSpinner9 } from "react-icons/im";
 import Lottie from "lottie-react";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
@@ -15,9 +15,10 @@ const imgHostingApi = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`;
 
 const SignUp = () => {
   const [show, setShow] = useState(false);
-  const { loading, setLoading, signUpWithEmail, updateUser } = useAuth();
+  const { loading, setLoading, signUpWithEmail, updateUser, logOut } =
+    useAuth();
   const axiosPublic = useAxiosPublic();
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     register,
@@ -43,29 +44,29 @@ const SignUp = () => {
             try {
               updateUser(data?.name, photo).then(() => {
                 toast.success("Profile Updated.");
-                // const user = {
-                //   email: data?.email,
-                //   name: data?.name,
-                //   photoURL: photo,
-                //   role: "user",
-                //   badge: "bronze",
-                // };
-                // axiosPublic
-                //   .put("/users", user)
-                //   .then((res) => {
-                //     if (res?.data?.upsertedCount || res?.data?.modifiedCount) {
-                //       try {
-                //         logOut().then(() => {
-                //           navigate("/logIn");
-                //         });
-                //       } catch (error) {
-                //         console.log(error);
-                //       }
-                //     }
-                //   })
-                //   .catch((err) => {
-                //     console.log(err);
-                //   });
+                const user = {
+                  email: data?.email,
+                  name: data?.name,
+                  photoURL: photo,
+                  role: "user",
+                  badge: "bronze",
+                };
+                axiosPublic
+                  .put("/users", user)
+                  .then((res) => {
+                    if (res?.data?.upsertedCount || res?.data?.modifiedCount) {
+                      try {
+                        logOut().then(() => {
+                          navigate("/logIn");
+                        });
+                      } catch (error) {
+                        console.log(error);
+                      }
+                    }
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
               });
             } catch (error) {
               console.log(error);
@@ -80,7 +81,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="min-h-screen">
+      <div className="min-h-screen my-10">
         <div className="max-w-screen-xl mx-auto min-h-[80vh] flex flex-col md:flex-row-reverse justify-center items-center gap-10">
           <div className="flex-1">
             <Lottie animationData={authGIF}></Lottie>
@@ -142,11 +143,88 @@ const SignUp = () => {
                 </div>
               </div>
 
+              <div className="relative">
+                <input
+                  {...register("phone", {
+                    required: true,
+                  })}
+                  className="w-full h-11 outline-none px-5 mt-4 bg-white border border-[#D0D0D0] rounded"
+                  type="number"
+                  placeholder="Phone Number"
+                  required
+                />
+                {errors?.phone?.type === "required" && (
+                  <p className="mt-2 mx-1 text-red-600">
+                    Please fill this input.
+                  </p>
+                )}
+              </div>
+
+              <p className="mt-4">Gender</p>
+              <div className="relative flex items-center gap-4">
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-2">Male</span>
+                    <input type="radio" name="radio-10" className="radio" />
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-2">Female</span>
+                    <input type="radio" name="radio-10" className="radio" />
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-2">Others</span>
+                    <input type="radio" name="radio-10" className="radio" />
+                  </label>
+                </div>
+                {errors?.password?.type === "required" && (
+                  <p className="mt-2 mx-1 text-red-600">
+                    Please fill this input.
+                  </p>
+                )}
+              </div>
+
+              <p className="mt-4">How did you hear about this?</p>
+              <div className="relative">
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-2">LinkedIn</span>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-2">Friends</span>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-2">Job Portal</span>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-2">Others</span>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
+                </div>
+                {errors?.phone?.type === "required" && (
+                  <p className="mt-2 mx-1 text-red-600">
+                    Please fill this input.
+                  </p>
+                )}
+              </div>
+
               <button className="btn w-full mt-4 bg-[#D1A054B3] hover:bg-[#D1A054B3] rounded">
                 {loading ? (
                   <ImSpinner9 className="animate-spin text-lg"></ImSpinner9>
                 ) : (
-                  "Sign Up"
+                  "Save"
                 )}
               </button>
             </form>
