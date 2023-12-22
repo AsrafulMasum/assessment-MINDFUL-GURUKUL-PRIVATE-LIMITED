@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+import MainLayout from "../Layout/MainLayout";
 
 const MainRoutes = createBrowserRouter([
   {
     index: true,
-    element: <Home></Home>,
+    element: <MainLayout></MainLayout>,
   },
   {
     path: "/signUp",
