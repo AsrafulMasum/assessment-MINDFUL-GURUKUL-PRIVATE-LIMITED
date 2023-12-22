@@ -81,7 +81,7 @@ const Login = () => {
                 </div>
               </div>
 
-              <button className="btn w-full mt-4 bg-[#D1A054B3] hover:bg-[#D1A054B3] rounded">
+              <button className="btn w-full mt-4 bg-[#D1A054B3] hover:bg-[#D1A054B3] rounded text-white">
                 {loading ? (
                   <ImSpinner9 className="animate-spin text-lg"></ImSpinner9>
                 ) : (

@@ -1,4 +1,4 @@
-import { IoMdNotifications } from "react-icons/io";
+// import { IoMdNotifications } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
@@ -9,14 +9,14 @@ const Drawer = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/membership">Membership</NavLink>
+        <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/notification">
           Notification
           <IoMdNotifications className="text-2xl"></IoMdNotifications>
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
 

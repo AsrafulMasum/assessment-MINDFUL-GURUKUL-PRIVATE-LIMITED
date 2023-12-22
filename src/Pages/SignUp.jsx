@@ -143,88 +143,11 @@ const SignUp = () => {
                 </div>
               </div>
 
-              <div className="relative">
-                <input
-                  {...register("phone", {
-                    required: true,
-                  })}
-                  className="w-full h-11 outline-none px-5 mt-4 bg-white border border-[#D0D0D0] rounded"
-                  type="number"
-                  placeholder="Phone Number"
-                  required
-                />
-                {errors?.phone?.type === "required" && (
-                  <p className="mt-2 mx-1 text-red-600">
-                    Please fill this input.
-                  </p>
-                )}
-              </div>
-
-              <p className="mt-4">Gender</p>
-              <div className="relative flex items-center gap-4">
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text mr-2">Male</span>
-                    <input type="radio" name="radio-10" className="radio" />
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text mr-2">Female</span>
-                    <input type="radio" name="radio-10" className="radio" />
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text mr-2">Others</span>
-                    <input type="radio" name="radio-10" className="radio" />
-                  </label>
-                </div>
-                {errors?.password?.type === "required" && (
-                  <p className="mt-2 mx-1 text-red-600">
-                    Please fill this input.
-                  </p>
-                )}
-              </div>
-
-              <p className="mt-4">How did you hear about this?</p>
-              <div className="relative">
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text mr-2">LinkedIn</span>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text mr-2">Friends</span>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text mr-2">Job Portal</span>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text mr-2">Others</span>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </div>
-                {errors?.phone?.type === "required" && (
-                  <p className="mt-2 mx-1 text-red-600">
-                    Please fill this input.
-                  </p>
-                )}
-              </div>
-
-              <button className="btn w-full mt-4 bg-[#D1A054B3] hover:bg-[#D1A054B3] rounded">
+              <button className="btn w-full mt-4 bg-[#D1A054B3] hover:bg-[#D1A054B3] rounded text-white">
                 {loading ? (
                   <ImSpinner9 className="animate-spin text-lg"></ImSpinner9>
                 ) : (
-                  "Save"
+                  "Sign Up"
                 )}
               </button>
             </form>

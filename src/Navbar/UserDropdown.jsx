@@ -1,14 +1,10 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import defaultUser from "../assets/user.png";
-import useLoadSecureData from "../Hooks/useLoadSecureData"
 
 const UserDropdown = () => {
   const { user, logOut } = useAuth();
 
-  const isAdminURL = `/users/admin/${user?.email}`
-  const {data: isAdmin} = useLoadSecureData(isAdminURL)
 
   const handleLogout = () => {
     logOut().then();
@@ -32,12 +28,6 @@ const UserDropdown = () => {
           <p className="flex justify-between text-black px-3 py-1">
             {user?.displayName.split(" ")[0]}
           </p>
-
-          <li>
-            <Link to={isAdmin?.admin ? "/dashboard/admin" : "/dashboard/user"} className="text-black">
-              Dashboard
-            </Link>
-          </li>
           <li>
             <button
               onClick={handleLogout}

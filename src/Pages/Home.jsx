@@ -1,13 +1,14 @@
-import Header from "../Navbar/Header";
-import Footer from "./Footer";
+import Banner from "./components/Banner";
+import Welcome from "./components/Welcome";
+
 
 
 
 const Home = () => {
   return (
     <div>
-      <Header></Header>
-      <Footer></Footer>
+      <Banner></Banner>
+      <Welcome></Welcome>
     </div>
   );
 };

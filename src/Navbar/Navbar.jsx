@@ -5,14 +5,14 @@ import logo from "/favicon.png";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import LayoutContainer from "../Layout/LayoutComponent/LayoutContainer";
-import useLoadPublicData from "../Hooks/useLoadPublicData";
+// import useLoadPublicData from "../Hooks/useLoadPublicData";
 // import { Menu, Transition } from "@headlessui/react";
 // import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { user } = useAuth();
-  const userURL = `/users/${user?.email}`;
-  const { data: dbUser } = useLoadPublicData(userURL);
+  // const userURL = `/users/${user?.email}`;
+  // const { data: dbUser } = useLoadPublicData(userURL);
 
   // const announcementsURL = "/announcement";
   // const { data: allAnnouncements, refetch } = useLoadPublicData(announcementsURL);
@@ -48,11 +48,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      {dbUser?.badge === "bronze" && (
-        <li>
-          <NavLink to="/membership">Membership</NavLink>
-        </li>
-      )}
+      <li>
+        <NavLink to="/dashboard">Dashboard</NavLink>
+      </li>
       {/* <li>
         <div className="text-right">
           <Menu as="div" className="relative inline-block text-left">
@@ -101,7 +99,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="w-full fixed bg-[#27485C] bg-opacity-90 z-50">
+    <div className="w-full fixed bg-gray-700 bg-opacity-50 z-50">
       <LayoutContainer>
         <div className="w-full navbar px-0">
           <div className="flex-none lg:hidden">
@@ -127,7 +125,7 @@ const Navbar = () => {
           </div>
           <div className="flex-1 flex items-center gap-4 px-2 mx-2 text-2xl text-white font-bold leading-none">
             <img className="w-12" src={logo} alt="LOGO" />
-            <p>Flarum</p>
+            <p>To Do</p>
           </div>
           <div>
             <div className="flex-none hidden lg:block">
