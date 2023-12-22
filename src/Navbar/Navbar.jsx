@@ -51,6 +51,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
+      <li>
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
       {/* <li>
         <div className="text-right">
           <Menu as="div" className="relative inline-block text-left">

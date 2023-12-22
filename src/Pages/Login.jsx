@@ -6,7 +6,7 @@ import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { ImSpinner9 } from "react-icons/im";
 import Lottie from "lottie-react";
 import useAuth from "../Hooks/useAuth"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
@@ -15,6 +15,7 @@ const Login = () => {
   const navigate = useNavigate()
   const { register, handleSubmit } = useForm();
   const {loading, setLoading, logInWithEmail} = useAuth()
+  const location = useLocation()
 
   const onSubmit = async (data) => {
     try {

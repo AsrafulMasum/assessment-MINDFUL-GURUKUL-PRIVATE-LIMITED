@@ -11,6 +11,9 @@ const Footer = () => {
       <li>
         <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
+      <li>
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
     </>
   );
 
@@ -67,7 +70,7 @@ const Footer = () => {
         <aside className="bg-gray-500 w-full h-20">
           <p className="text-white">
             Copyright © 2023 - All right reserved by{" "}
-            <span className="text-active-color font-semibold">Flarum</span> Ltd
+            <span className="text-active-color font-semibold text-[#D1A054B3]">To Do</span> Ltd
           </p>
         </aside>
       </footer>

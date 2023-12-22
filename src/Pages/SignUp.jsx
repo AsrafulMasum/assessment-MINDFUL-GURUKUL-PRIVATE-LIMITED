@@ -52,9 +52,10 @@ const SignUp = () => {
                   badge: "bronze",
                 };
                 axiosPublic
-                  .put("/users", user)
+                  .post("/users", user)
                   .then((res) => {
-                    if (res?.data?.upsertedCount || res?.data?.modifiedCount) {
+                    console.log(res.data);
+                    if (res?.data?.insertedId || res?.data?.user) {
                       try {
                         logOut().then(() => {
                           navigate("/logIn");

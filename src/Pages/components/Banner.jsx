@@ -1,10 +1,15 @@
+import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+
 const Banner = () => {
+  const {user} = useAuth()
   return (
     <div>
       <div
         className="hero min-h-screen"
         style={{
           backgroundImage: "url(https://i.postimg.cc/vZXZPNsD/banner.jpg)",
+          backgroundAttachment: "fixed"
         }}
       >
         <div className="hero-overlay bg-opacity-50"></div>
@@ -15,7 +20,7 @@ const Banner = () => {
               Stay Organized, Get It Done! Your Ultimate To-Do Companion for
               Efficiency and Productivity.
             </p>
-            <button className="btn btn-wide bg-[#D1A054B3] border-none text-gray-900 hover:text-white">Let’s Explore</button>
+            <Link to={user ? "/dashboard" : "/logIn"} className="btn btn-wide bg-[#D1A054B3] border-none text-gray-900 hover:text-white">Let’s Explore</Link>
           </div>
         </div>
       </div>

@@ -11,6 +11,9 @@ const Drawer = () => {
       <li>
         <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
+      <li>
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
       {/* <li>
         <NavLink to="/notification">
           Notification
@@ -21,13 +24,13 @@ const Drawer = () => {
   );
 
   return (
-    <div className="drawer-side z-50">
+    <div className="drawer-side z-50 min-h-full">
       <label
         htmlFor="my-drawer-3"
         aria-label="close sidebar"
         className="drawer-overlay"
       ></label>
-      <ul className="menu p-4 w-80 min-h-full bg-textColor">{navLinks}</ul>
+      <ul className="menu p-4 w-80 min-h-full bg-base-200">{navLinks}</ul>
     </div>
   );
 };

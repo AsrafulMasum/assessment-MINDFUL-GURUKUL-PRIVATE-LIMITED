@@ -1,5 +1,6 @@
 import Banner from "./components/Banner";
 import Welcome from "./components/Welcome";
+import Footer from "../Pages/Footer"
 
 
 
@@ -9,6 +10,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <Welcome></Welcome>
+      <Footer></Footer>
     </div>
   );
 };
